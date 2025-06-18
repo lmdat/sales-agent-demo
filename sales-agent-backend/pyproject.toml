@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "sales-agent-backend"
+version = "0.1.0"
+description = ""
+authors = ["Dat Le <minh_dat_le@yahoo.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+python-dotenv = "^1.1.0"
+loguru = "^0.7.3"
+langgraph = "^0.4.5"
+litellm = "^1.70.2"
+httpx = "^0.28.1"
+sqlmodel = "^0.0.24"
+bcrypt = "^4.3.0"
+langgraph-checkpoint-sqlite = "^2.0.10"
+markdown = "^3.8"
+fastapi = {extras = ["standard"], version = "^0.115.12"}
+termcolor = "^3.1.0"
+pinecone = "^7.0.1"
+pyreadline3 = "^3.5.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
