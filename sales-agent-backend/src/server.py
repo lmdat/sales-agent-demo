@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from api.conversation.routers import router as chat_routers
-from api.alive.routrers import router as alive_routers
+from api.alive.routers import router as alive_routers
 import uvicorn
 import os
 from dotenv import find_dotenv, load_dotenv
