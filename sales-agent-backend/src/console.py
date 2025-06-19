@@ -14,6 +14,20 @@ def main():
 
     graph = build_graph()
 
+    # Delete history
+    try:
+        conn = graph.checkpointer.conn
+        cursor = conn.cursor()
+        cursor.execute(f"DELETE FROM checkpoints WHERE thread_id = '{configurable['configurable']['thread_id']}'")
+        cursor.execute(f"DELETE FROM writes WHERE thread_id = '{configurable['configurable']['thread_id']}'")
+        cursor.close()
+        conn.commit()
+
+        logger.info(f"Deleted thread: {configurable['configurable']['thread_id']}")
+    except Exception as err:
+        logger.error(err)
+
+    # Run Agent    
     while True:
         try:
             user_input = input(">>> User: ")
