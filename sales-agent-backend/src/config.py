@@ -5,6 +5,7 @@ load_dotenv(find_dotenv())
 
 APP_ROOT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Config các LLM models sử dụng trong ứng dụng
 LLM_MODELS = {
     "router": {
         "router_node": os.getenv('GROQ_LLM_MODEL_LLAMA_70B')

@@ -40,11 +40,11 @@ def company_info_data():
         }
     ]
 
-    
+
     for i, item in enumerate(data):
         item['id'] = str(i + 1)
         item['chunk_content'] = f"{item['title']}\n----------\n{dedent(item['content'])}"
-        
+
     return data
 
 def products_data():
@@ -387,7 +387,7 @@ def products_data():
                 url: {item['url']}"""
         )
         sku_list.append(item['sku'])
-    
+
     print(sku_list)
     return data
 
@@ -398,7 +398,8 @@ def create_index(index_name :str=None):
             cloud='aws',
             region='us-east-1',
             embed={
-                'model': 'llama-text-embed-v2',
+                # 'model': 'llama-text-embed-v2',
+                'model': 'multilingual-e5-large',
                 'field_map': {
                     'text': 'chunk_content'
                 }
@@ -406,7 +407,7 @@ def create_index(index_name :str=None):
         )
 
     return pinecone_client.Index(index_name)
-        
+
 def main():
     print("Create index...")
     index = create_index(os.getenv('PINECONE_INDEX_NAME', 'sales-agent-miracle-life'))
@@ -428,4 +429,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    

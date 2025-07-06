@@ -14,12 +14,12 @@ CONST_PRODUCT_LINES = [
 ]
 
 CONST_PRODUCT_CATEGORY_DESCRIPTION = {
-    "perfume": "Các sản phẩm là nước hoa",    
-    "shower-gel": "Các sản phẩm là sữa tắm",    
-    "essential-oil": "Các sản phẩm là tinh dầu xông",    
-    "shampoo": "Các sản phẩm là dầu gội đầu",    
-    "natural-soap": "Các sản phẩm là xà phòng làm từ nguyên liệu thiên nhiên",    
-    "facial-cleanser": "Các sản phẩm là sữa rửa mặt"    
+    "perfume": "Các sản phẩm là nước hoa",
+    "shower-gel": "Các sản phẩm là sữa tắm",
+    "essential-oil": "Các sản phẩm là tinh dầu xông",
+    "shampoo": "Các sản phẩm là dầu gội đầu",
+    "natural-soap": "Các sản phẩm là xà phòng làm từ nguyên liệu thiên nhiên",
+    "facial-cleanser": "Các sản phẩm là sữa rửa mặt"
 }
 
 

@@ -37,7 +37,7 @@ def router_node(state: SalesAgentState):
         start_on="human",
         end_on=("human", "tool"),
     )
-    
+
     chat_history = parsing_messages_to_history(trimmed_messages)
     json_example = {
         "name": f"Một trong các giá trị sau: {', '.join(TOPIC_MAP.values())}",
@@ -51,11 +51,11 @@ def router_node(state: SalesAgentState):
         total=0
     )
 
-    
+
     prompt = f"""
     # Role
     - Assistant là một chuyên gia phân loại văn bản với 10 năm kinh nghiệm.
-    
+
     # Skills
     - Assistant có kỹ năng Sales.
     - Assistant có khả năng phân tích nội dung văn bản trong lĩnh vực Sales.
@@ -83,7 +83,7 @@ def router_node(state: SalesAgentState):
             - Em ơi, cho Anh (Chị) hỏi chút
             - Cho Anh (Chị) hỏi một chút
             - Có ai không, cho hỏi chút
-    
+
     2. Thông tin công ty:
         - Nếu User hỏi Assistant những thông tin chung liên quan đến công ty hoặc những dịch vụ, chính sách của công ty. Return "{TOPIC_MAP.get("company_info")}"
         - Example:
@@ -98,7 +98,7 @@ def router_node(state: SalesAgentState):
             - Chính sách đổi trả
             - Chính sách bảo mật
             - Chính sách vận chuyển
-            - Điều khoản và dịch vụ         
+            - Điều khoản và dịch vụ
 
     3. Tư vấn sản phẩm:
         - Nếu User hỏi Assistant những thông tin về sản phẩm của công ty. Return "{TOPIC_MAP.get("product_qna")}"
@@ -112,7 +112,7 @@ def router_node(state: SalesAgentState):
             - Mua nhiều có được giảm giá hok em?
             - Có gì rẻ khoảng 500k hok em?
             - Em có bán nước hoa không?
-            - Bên em có bán xà phòng thiên nhiên hok?            
+            - Bên em có bán xà phòng thiên nhiên hok?
             - xà phòng thiên nhiên là gì vậy em?
 
     4. Đặt hàng:
@@ -127,8 +127,8 @@ def router_node(state: SalesAgentState):
             - Lấy anh 3 cục xà phòng đi.
             - OK, lấy anh món đó nha.
             - Cho anh order cái đó.
-            - Cho đặt hàng 3 dầu gội này nha.            
-    
+            - Cho đặt hàng 3 dầu gội này nha.
+
     5. Off Topic:
         - Nếu câu hỏi không liên quan đến các topic trên. Return "{TOPIC_MAP.get("off_topic")}"
         - Example:
@@ -148,7 +148,7 @@ def router_node(state: SalesAgentState):
             - Thôi để khi khác mua nha.
             - Để anh suy nghĩ thêm.
             - Anh không mua nữa, để lần sau nha.
-    
+
     # Output
     - Assistant MUST trả lời bằng JSON format với các field như sau:
     ```
@@ -186,11 +186,11 @@ def router_node(state: SalesAgentState):
 
     topic = state.get('topic', None)
     logger.info(f"Topic: {topic}")
-    
+
     if topic is None:
         if new_topic.name != TOPIC_MAP.get("off_topic") and new_topic.confidence < 0.5:
             new_topic.name = TOPIC_MAP.get("off_topic")
-            
+
         logger.info(f"New Topic: {new_topic}")
         return {
             "topic": new_topic,
@@ -200,14 +200,14 @@ def router_node(state: SalesAgentState):
         }
     else:
         logger.info(f"New Topic: {new_topic}")
-        if new_topic.name == TOPIC_MAP.get("exit") and topic.confidence > 0.5:
+        if new_topic.name == TOPIC_MAP.get("wanna_exit") and topic.confidence > 0.5:
             return {
                 "topic": new_topic,
                 "human_input": human_input,
                 "usage_tokens": usage_tokens,
                 "ai_reply": None
             }
-        
+
         if topic.name == TOPIC_MAP.get("make_order") and (new_topic.name == TOPIC_MAP.get("product_qna") and new_topic.confidence > 0.5):
             return {
                 "topic": new_topic,
