@@ -20,11 +20,11 @@ LLM_MODELS = {
         "off_topic_node": os.getenv('GROQ_LLM_MODEL_GEMMA2_9B')
     },
     "product_qna_subgraph": {
-        "analyze_product_node": os.getenv('GROQ_LLM_MODEL_DEEPSEEK_R1'),
+        "analyze_product_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_120B'),
         "product_qna_node": os.getenv('GROQ_LLM_MODEL_GEMMA2_9B')
     },
     "make_order_subgraph": {
-        "analyze_order_node": os.getenv('GROQ_LLM_MODEL_DEEPSEEK_R1'),
+        "analyze_order_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_120B'),
         "inform_items_not_in_stock": os.getenv('GROQ_LLM_MODEL_LLAMA_70B'),
         "collect_order_info_node": os.getenv('GROQ_LLM_MODEL_GEMMA2_9B'),
         "order_confirmation_node": os.getenv('GROQ_LLM_MODEL_GEMMA2_9B'),
