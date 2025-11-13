@@ -14,10 +14,10 @@ LLM_MODELS = {
         "greeting_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_20B')
     },
     "company_info_subgraph": {
-        "company_info_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_20B')
+        "company_info_node": os.getenv('GROQ_LLM_MODEL_LLAMA_8B')
     },
     "off_topic_subgraph": {
-        "off_topic_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_20B')
+        "off_topic_node": os.getenv('GROQ_LLM_MODEL_LLAMA_70B')
     },
     "product_qna_subgraph": {
         "analyze_product_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_120B'),
