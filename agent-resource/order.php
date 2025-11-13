@@ -9,7 +9,9 @@ if ($method == 'GET') {
 }
 
 $body = json_decode(file_get_contents('php://input'), true);
-$url = "https://script.google.com/macros/s/AKfycbx_Q6kzNJzYJtEcPA-nuOmgvOcKwB0MfyU90ScbWbQWMsVCNGSsfP1BvdKTPMCx2NPilQ/exec";
+// $url = "https://script.google.com/macros/s/AKfycbx_Q6kzNJzYJtEcPA-nuOmgvOcKwB0MfyU90ScbWbQWMsVCNGSsfP1BvdKTPMCx2NPilQ/exec";
+$url = "https://script.google.com/macros/s/AKfycbxfxhGV1OZII_BMwQJtxNemjf5NMuMzLYUMb_A1HwfJ1Rc2G13Jw981kkUn9ccgcWF_Uw/exec";
+
 
 function save_order($body, $url){
     $order = $body['order'];
