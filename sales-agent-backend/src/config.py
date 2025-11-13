@@ -24,11 +24,11 @@ LLM_MODELS = {
         "product_qna_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_20B')
     },
     "make_order_subgraph": {
-        "analyze_order_node": os.getenv('GROQ_LLM_MODEL_LLAMA_8B'),
+        "analyze_order_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_120B'),
         "inform_items_not_in_stock": os.getenv('GROQ_LLM_MODEL_LLAMA_70B'),
         "collect_order_info_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_20B'),
         "order_confirmation_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_20B'),
-        "create_order_summary_node": os.getenv('GROQ_LLM_MODEL_OPENAI_OSS_20B')
+        "create_order_summary_node": os.getenv('GROQ_LLM_MODEL_LLAMA_70B')
     },
     "exit_subgraph": {
         "exit_node": os.getenv('GROQ_LLM_MODEL_LLAMA_70B')
